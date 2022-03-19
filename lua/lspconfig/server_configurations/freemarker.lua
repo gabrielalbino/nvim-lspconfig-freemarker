@@ -1,13 +1,15 @@
 local util = require 'lspconfig.util'
+local configs = require 'lspconfig.configs'
+local server_name = 'freemarker_ls'
 
-return {
+configs[server_name] = {
   default_config = {
     cmd = {
       'java',
       '-jar',
       'groovy-language-server-all.jar',
     },
-    filetypes = { 'freemarker' },
+    filetypes = { 'ftl' },
     root_dir = util.find_git_ancestor
   },
   docs = {
@@ -27,4 +29,4 @@ require'lspconfig'.groovyls.setup{
 ```
 ]],
   },
-}t
+}
